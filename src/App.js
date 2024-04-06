@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Routes, Route} from 'react-router-dom'
+
+import Users from './components/users-component';
+import Posts from './components/posts-component';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Routes>
+        <Route exact path="/users" element={<Users dataSource='https://jsonplaceholder.typicode.com/users' />} />
+        <Route exact path="/posts" element={<Posts dataSource='https://jsonplaceholder.typicode.com/posts' />} />
+      </Routes>
+      
     </div>
   );
 }
